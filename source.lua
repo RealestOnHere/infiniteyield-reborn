@@ -2,7 +2,7 @@
 	Hello! You might wonder why Infinite Yield Reborn is not executing.
         You may have also wondered if the script is obfuscated or not. As you can see, it isn't.
 
-	If IY Reborn is not executing, this can possibly mean that your executor does not support LuaU syntax.
+	If IY Modded is not executing, this can possibly mean that your executor does not support LuaU syntax.
 
 	To check if it supports LuaU syntax, run this:
 	print(true and "Supported" or "This shouldn't be printed")
