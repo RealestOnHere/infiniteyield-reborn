@@ -237,7 +237,7 @@ if os.date("*t", os.time()).month == 4 then
 	-- This is a reminder how EdgeIY edgy was
 	Title.Text = "Infinite Yiff v"  .. currentVersion
 else
-	Title.Text = "Infinite Yield Reborn v"  .. currentVersion
+	Title.Text = "Infinite Yield Modded v"  .. currentVersion
 end
 do
 	local emoji = ({
@@ -280,7 +280,73 @@ Dark.BorderSizePixel = 0
 Dark.Position = UDim2.new(0, 0, 0, 45)
 Dark.Size = UDim2.new(0, 250, 0, 175)
 Dark.ZIndex = 10
-table.insert(shade1,Dark)
+table.insert(shade1, Dark)
+local colorChangeSpeed = 0.001
+local function rgbCycle()
+    while true do
+        for i = 0, 255 do
+            local color = Color3.fromRGB(255, i, 0) -- Red to Yellow
+            Dark.BackgroundColor3 = color
+												wait(colorChangeSpeed)
+            Title.BackgroundColor3 = color
+            Settings.BackgroundColor3 = color
+            PrefixBox.BackgroundColor3 = color
+            Notification.BackgroundColor3 = color
+            IntroBackground.BackgroundColor3 = color
+        end
+        for i = 255, 0, -1 do
+            local color1 = Color3.fromRGB(i, 255, 0) -- Yellow to Green
+            Dark.BackgroundColor3 = color1
+												wait(colorChangeSpeed)
+            Title.BackgroundColor3 = color1
+            Settings.BackgroundColor3 = color1
+            PrefixBox.BackgroundColor3 = color1
+            Notification.BackgroundColor3 = color1
+            IntroBackground.BackgroundColor3 = color1
+        end
+        for i = 0, 255 do
+            local color2 = Color3.fromRGB(0, 255, i) -- Green to Cyan
+            Dark.BackgroundColor3 = color2
+												wait(colorChangeSpeed)
+            Title.BackgroundColor3 = color2
+            Settings.BackgroundColor3 = color2
+            PrefixBox.BackgroundColor3 = color2
+            Notification.BackgroundColor3 = color2
+            IntroBackground.BackgroundColor3 = color2
+        end
+        for i = 255, 0, -1 do
+            local color3 = Color3.fromRGB(0, i, 255) -- Cyan to Blue
+            Dark.BackgroundColor3 = color3
+												 wait(colorChangeSpeed)
+            Title.BackgroundColor3 = color3
+            Settings.BackgroundColor3 = color3
+            PrefixBox.BackgroundColor3 = color3
+            Notification.BackgroundColor3 = color3
+            IntroBackground.BackgroundColor3 = color3
+        end
+        for i = 0, 255 do
+            local color4 = Color3.fromRGB(i, 0, 255) -- Blue to Magenta
+            Dark.BackgroundColor3 = color4
+												 wait(colorChangeSpeed)
+            Title.BackgroundColor3 = color4
+            Settings.BackgroundColor3 = color4
+	            PrefixBox.BackgroundColor3 = color4
+            Notification.BackgroundColor3 = color4
+            IntroBackground.BackgroundColor3 = color4
+        end
+        for i = 255, 0, -1 do
+            local color5 = Color3.fromRGB(255, 0, i) -- Magenta to Red
+	            Dark.BackgroundColor3 = color5
+												 wait(colorChangeSpeed)
+            Title.BackgroundColor3 = color5
+            Settings.BackgroundColor3 = color5
+            PrefixBox.BackgroundColor3 = color5
+            Notification.BackgroundColor3 = color5
+            IntroBackground.BackgroundColor3 = color5
+        end
+    end
+end
+task.spawn(rgbCycle)
 
 Cmdbar.Name = "Cmdbar"
 Cmdbar.Parent = Holder
@@ -648,7 +714,7 @@ Credits.Position = UDim2.new(0, 0, 0.9, 30)
 Credits.Size = UDim2.new(0, 250, 0, 20)
 Credits.Font = Enum.Font.SourceSansLight
 Credits.FontSize = Enum.FontSize.Size18
-Credits.Text = "Edge // Zwolf // Moon // Toon // _Real"
+Credits.Text = "Steponthem"
 Credits.TextColor3 = Color3.new(1, 1, 1)
 Credits.ZIndex = 10
 
@@ -8313,7 +8379,7 @@ end)
 addcmd("savelogs", {}, function(args, speaker)
 	local LogService = cloneref(game:GetService('LogService'))
 	local placeName = CleanFileName(MarketplaceService:GetProductInfo(PlaceId).Name)
-	local writelogs = '-- Infinite Yield Reborn Roblox logs for "'..placeName..'"\n'
+	local writelogs = '-- Infinite Yield Modded Roblox logs for "'..placeName..'"\n'
 	local getLogMessages = LogService:GetLogHistory()
 	local array = {}
 	local writelogsFile
