@@ -281,71 +281,87 @@ Dark.Position = UDim2.new(0, 0, 0, 45)
 Dark.Size = UDim2.new(0, 250, 0, 175)
 Dark.ZIndex = 10
 table.insert(shade1, Dark)
-local colorChangeSpeed = 0.001
+local colorChangeSpeed = 0.01
+
+local instances = {
+    Holder, Dark, Title, Cmdbar, CMDsF, SettingsButton, ColorsButton, Settings, Prefix,
+    PrefixBox, Keybinds, StayOpen, Button, On, Positions, EventBind, Plugins, Example,
+    Notification, Title_2, Text_2, CloseButton, CloseImage, PinButton, PinImage, Tooltip,
+    Title_3, Description, IntroBackground, Logo, Credits, KeybindsFrame, Close, Add,
+    Delete, Holder_2, Example_2, Text_3, Delete_2, KeybindEditor, background_2, Dark_3,
+    Directions, BindTo, TriggerLabel, BindTriggerSelect, Add_2, Toggles, ClickTP, Select,
+    ClickDelete, Select_2, Cmdbar_2, Cmdbar_3, CreateToggle, Button_2, On_2, shadow_2,
+    PopupText_2, Exit_2, ExitImage_2, PositionsFrame, Close_3, Delete_5, Part, Holder_4,
+    Example_4, Text_5, Delete_6, TP, AliasesFrame, Close_2, Delete_3, Holder_3, Example_3,
+    Text_4, Delete_4, Aliases, PluginsFrame, Close_4, Add_3, Holder_5, Example_5, Text_6,
+    Delete_7, PluginEditor, background_3, Dark_2, Img, AddPlugin, FileName, About,
+    Directions_2, shadow_3, PopupText_3, Exit_3, ExitImage_3, AliasHint, PluginsHint,
+    PositionsHint, ToPartFrame, background_4, ChoosePart, CopyPath, Directions_3, Path,
+    shadow_4, PopupText_5, Exit_4, ExitImage_5, logs, shadow, Hide, ImageLabel, PopupText,
+    Exit, ImageLabel_2, background, chat, Clear, SaveChatlogs, Toggle, scroll_2, join,
+    Toggle_2, Clear_2, scroll_3, selectChat, selectJoin, QuickCapture
+}
+
 local function rgbCycle()
     while true do
         for i = 0, 255 do
             local color = Color3.fromRGB(255, i, 0) -- Red to Yellow
-            Dark.BackgroundColor3 = color
-												wait(colorChangeSpeed)
-            Title.BackgroundColor3 = color
-            Settings.BackgroundColor3 = color
-            PrefixBox.BackgroundColor3 = color
-            Notification.BackgroundColor3 = color
-            IntroBackground.BackgroundColor3 = color
+            for _, instance in ipairs(instances) do
+                if instance:IsA("GuiObject") and instance.BackgroundColor3 then
+                    instance.BackgroundColor3 = color
+                end
+            end
+            wait(colorChangeSpeed)
         end
         for i = 255, 0, -1 do
-            local color1 = Color3.fromRGB(i, 255, 0) -- Yellow to Green
-            Dark.BackgroundColor3 = color1
-												wait(colorChangeSpeed)
-            Title.BackgroundColor3 = color1
-            Settings.BackgroundColor3 = color1
-            PrefixBox.BackgroundColor3 = color1
-            Notification.BackgroundColor3 = color1
-            IntroBackground.BackgroundColor3 = color1
+            local color = Color3.fromRGB(i, 255, 0) -- Yellow to Green
+            for _, instance in ipairs(instances) do
+                if instance:IsA("GuiObject") and instance.BackgroundColor3 then
+                    instance.BackgroundColor3 = color
+                end
+            end
+            wait(colorChangeSpeed)
         end
         for i = 0, 255 do
-            local color2 = Color3.fromRGB(0, 255, i) -- Green to Cyan
-            Dark.BackgroundColor3 = color2
-												wait(colorChangeSpeed)
-            Title.BackgroundColor3 = color2
-            Settings.BackgroundColor3 = color2
-            PrefixBox.BackgroundColor3 = color2
-            Notification.BackgroundColor3 = color2
-            IntroBackground.BackgroundColor3 = color2
+            local color = Color3.fromRGB(0, 255, i) -- Green to Cyan
+            for _, instance in ipairs(instances) do
+                if instance:IsA("GuiObject") and instance.BackgroundColor3 then
+                    instance.BackgroundColor3 = color
+                end
+            end
+            wait(colorChangeSpeed)
         end
         for i = 255, 0, -1 do
-            local color3 = Color3.fromRGB(0, i, 255) -- Cyan to Blue
-            Dark.BackgroundColor3 = color3
-												 wait(colorChangeSpeed)
-            Title.BackgroundColor3 = color3
-            Settings.BackgroundColor3 = color3
-            PrefixBox.BackgroundColor3 = color3
-            Notification.BackgroundColor3 = color3
-            IntroBackground.BackgroundColor3 = color3
+            local color = Color3.fromRGB(0, i, 255) -- Cyan to Blue
+            for _, instance in ipairs(instances) do
+                if instance:IsA("GuiObject") and instance.BackgroundColor3 then
+                    instance.BackgroundColor3 = color
+                end
+            end
+            wait(colorChangeSpeed)
         end
         for i = 0, 255 do
-            local color4 = Color3.fromRGB(i, 0, 255) -- Blue to Magenta
-            Dark.BackgroundColor3 = color4
-												 wait(colorChangeSpeed)
-            Title.BackgroundColor3 = color4
-            Settings.BackgroundColor3 = color4
-	            PrefixBox.BackgroundColor3 = color4
-            Notification.BackgroundColor3 = color4
-            IntroBackground.BackgroundColor3 = color4
+            local color = Color3.fromRGB(i, 0, 255) -- Blue to Magenta
+            for _, instance in ipairs(instances) do
+                if instance:IsA("GuiObject") and instance.BackgroundColor3 then
+                    instance.BackgroundColor3 = color
+                end
+            end
+            wait(colorChangeSpeed)
         end
         for i = 255, 0, -1 do
-            local color5 = Color3.fromRGB(255, 0, i) -- Magenta to Red
-	            Dark.BackgroundColor3 = color5
-												 wait(colorChangeSpeed)
-            Title.BackgroundColor3 = color5
-            Settings.BackgroundColor3 = color5
-            PrefixBox.BackgroundColor3 = color5
-            Notification.BackgroundColor3 = color5
-            IntroBackground.BackgroundColor3 = color5
+            local color = Color3.fromRGB(255, 0, i) -- Magenta to Red
+            for _, instance in ipairs(instances) do
+                if instance:IsA("GuiObject") and instance.BackgroundColor3 then
+                    instance.BackgroundColor3 = color
+                end
+            end
+            wait(colorChangeSpeed)
         end
     end
 end
+
+-- Start the RGB cycle
 task.spawn(rgbCycle)
 
 Cmdbar.Name = "Cmdbar"
